@@ -5,149 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuf Nasiru - Portfolio</title>
     <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset and Base Styles */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333;
+            line-height: 1.6;
         }
-        /* Header */
+        
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        
         header {
-            background-color: #222;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
+            background: #35424a;
+            color: #ffffff;
+            padding-top: 20px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
         }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
+        
+        header a {
+            color: #ffffff;
             text-decoration: none;
-            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 16px;
         }
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-        /* Sections */
-        section {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        
+        .hero {
+            background: #35424a;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
             opacity: 0;
-            transform: translateY(20px);
-            animation: fadeSlideIn 1s ease-in-out forwards;
+            animation: fadeIn 1.5s ease-in forwards;
         }
-        h2 {
-            color: #222;
-            border-bottom: 2px solid #222;
-            padding-bottom: 5px;
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        /* Lists */
-        ul {
-            padding: 0;
-            list-style: none;
+        
+        .projects, .about, .contact {
+            padding: 20px 0;
+            background: white;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: slideUp 1s ease-in forwards;
         }
-        ul li {
-            background: #eee;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-            transition: transform 0.3s;
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        ul li:hover {
+        
+        .project-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .project {
+            background: #007bff;
+            color: white;
+            margin: 10px;
+            padding: 15px;
+            width: 30%;
+            text-align: center;
+            transform: scale(0.9);
+            transition: transform 0.3s ease-in-out;
+            border-radius: 8px;
+        }
+        
+        .project:hover {
             transform: scale(1.05);
         }
-        /* Contact Section */
-        #contact a {
+        
+        .contact a {
             color: #007bff;
             text-decoration: none;
-            font-weight: bold;
-        }
-        #contact a:hover {
-            text-decoration: underline;
-        }
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #222;
-            color: white;
-            margin-top: 40px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes fadeSlideIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>Yusuf Nasiru</h1>
-        <p>Software Engineer | Graphic Designer</p>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav>
+                <div class="logo">Yusuf Nasiru</div>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Self-motivated and quality-focused Software Engineer with expertise in full-stack development, UI/UX design, and DevOps. Passionate about creating scalable solutions for business optimization.</p>
-        <h3>Skills</h3>
-        <ul>
-            <li>ASP.NET MVC, C#, SQL Server</li>
-            <li>ReactJS, NodeJS, TypeScript</li>
-            <li>Graphic Design: Figma, Photoshop, Corel Draw</li>
-            <li>DevOps: AWS, Azure</li>
-        </ul>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span>Yusuf Nasiru</span></h1>
+                <p>A passionate Software Engineer & Graphic Designer, specializing in building scalable applications and stunning digital experiences.</p>
+                <div>
+                    <a href="#projects" class="btn">View My Work</a>
+                    <a href="#contact" class="btn btn-outline">Let's Talk</a>
+                </div>
+            </div>
+        </div>
     </section>
-    
-    <section id="portfolio">
-        <h2>Portfolio</h2>
-        <h3>Software Projects</h3>
-        <ul>
-            <li>Dornier Aviation System (Full-stack development)</li>
-            <li>University Portal (Kaduna State University)</li>
-            <li>Health Information System (KADcare)</li>
-        </ul>
-        <h3>Graphic Design Works</h3>
-        <ul>
-            <li>Branding & Logo Design</li>
-            <li>UI/UX Prototypes</li>
-            <li>Marketing Materials</li>
-        </ul>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a self-motivated software engineer and graphic designer with expertise in designing and developing scalable software solutions, UI/UX, and branding.</p>
+            <p>With years of experience in ASP.NET, React, Node.js, and cloud technologies like AWS & Azure, I help businesses optimize their digital presence.</p>
+            <h3>Skills & Technologies</h3>
+            <ul>
+                <li>ASP.NET MVC, Web API</li>
+                <li>React.js, Node.js, TypeScript</li>
+                <li>SQL Server, Postgres</li>
+                <li>UI/UX, Figma, Corel Draw, Photoshop</li>
+                <li>Microservices, DevOps, Cloud Computing</li>
+            </ul>
+        </div>
     </section>
-    
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:yusufnasiru22@gmail.com">yusufnasiru22@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/El-icon">El-icon</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/yusuf-n">yusuf-n</a></p>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-list">
+                <div class="project">
+                    <h3>Dornier Aviation Tech Logs System</h3>
+                    <p>Developed a scalable microservices-based application for Dornier Aviation, optimizing flight and maintenance logs.</p>
+                </div>
+                <div class="project">
+                    <h3>Past Question App</h3>
+                    <p>Led development of an educational platform to help students prepare for exams efficiently.</p>
+                </div>
+                <div class="project">
+                    <h3>University Portal</h3>
+                    <p>Developed a university portal for Kaduna State University, integrating payment services and student management.</p>
+                </div>
+            </div>
+        </div>
     </section>
-    
-    <footer>
-        <p>&copy; 2025 Yusuf Nasiru. All rights reserved.</p>
-    </footer>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:yusufnasiru22@gmail.com">yusufnasiru22@gmail.com</a></p>
+            <p>Phone: +234 7060601330</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/yusuf-n/" target="_blank">yusuf-n</a></p>
+            <p>GitHub: <a href="https://github.com/El-icon" target="_blank">El-icon</a></p>
+        </div>
+    </section>
 </body>
 </html>
